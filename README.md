@@ -1,2 +1,1 @@
-# Rsquare
-Assignment
+# Rsquare assignment
