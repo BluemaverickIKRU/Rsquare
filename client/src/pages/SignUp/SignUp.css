@@ -1,0 +1,95 @@
+.signup-container {
+  display: flex;
+}
+
+/* Title screen */
+
+.signup-title-container {
+  width: 30vw;
+  background-color: #444278;
+  height: 100vh;
+  color: white;
+}
+
+.signup-title {
+  width: 19em;
+  margin: 7em auto 0 auto;
+}
+
+.signup-title h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+/* Form screen */
+
+/* The below code is to hide the increment and decrement icon in the number input field */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  appearance: none;
+}
+input[type='number'] {
+  appearance: textfield;
+}
+
+.signup-form-container {
+  width: 70vw;
+}
+
+.signup-form-title h2,
+.signup-form-title p {
+  margin: 0;
+  margin-bottom: 0.3em;
+}
+
+.signup-form-title h2 {
+  font-size: 2rem;
+}
+
+.signup-form-title p {
+  font-size: smaller;
+}
+
+.signup-form-main {
+  width: 80%;
+  margin: 7em auto 0 auto;
+}
+
+.signup-form-fields {
+  margin: 1em 1em 1em 0;
+  display: flex;
+}
+
+.signup-input {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 1em 1em 0;
+}
+
+.signup-input label {
+  font-size: smaller;
+  margin-bottom: 0.3em;
+}
+
+.signup-input input {
+  padding: 0.5em;
+  width: 20em;
+}
+
+.signup-required:after {
+  content: '*';
+}
+
+.signup-input input:focus {
+  outline: none;
+  border: 2px solid slateblue;
+}
+
+.signup-button button {
+  padding: 1em;
+  width: 30em;
+  background-color: #6b69b6;
+  color: white;
+  border: none;
+}
