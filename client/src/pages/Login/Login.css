@@ -1,0 +1,113 @@
+.login-container {
+  display: flex;
+}
+
+/* Title screen */
+
+.login-title-container {
+  width: 30vw;
+  background-color: #444278;
+  height: 100vh;
+  color: white;
+}
+
+.login-title {
+  width: 19em;
+  margin: 7em auto 0 auto;
+}
+
+.login-title h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+/* Form screen */
+
+/* The below code is to hide the increment and decrement icon in the number input field */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  appearance: none;
+}
+input[type='number'] {
+  appearance: textfield;
+}
+
+.login-form-container {
+  width: 70vw;
+}
+
+.login-form-title h2,
+.login-form-title p {
+  margin: 0;
+  margin-bottom: 0.3em;
+}
+
+.login-form-title h2 {
+  font-size: 2rem;
+}
+
+.login-form-title p {
+  font-size: smaller;
+}
+
+.login-form-main {
+  width: 80%;
+  margin: 7em auto 0 auto;
+}
+
+.login-form {
+  width: 24em;
+}
+
+.login-input {
+  display: flex;
+  flex-direction: column;
+  margin: 2em 2em 2em 0;
+}
+
+.login-input label {
+  font-size: medium;
+  margin-bottom: 0.3em;
+}
+
+.login-input input {
+  padding: 0.5em;
+  width: 20em;
+  font-size: 1.1rem;
+}
+
+.login-required:after {
+  content: '*';
+}
+
+.login-input input:focus {
+  outline: none;
+  border: 2px solid slateblue;
+}
+
+.login-checkbox {
+  display: flex;
+  margin: 0.3em;
+  align-items: center;
+}
+
+.checkbox-forgotPass-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox-forgotPass-div p {
+  margin-right: 0.8em;
+  color: #6b69b6;
+  font-weight: 500;
+}
+
+.login-btn {
+  padding: 1em;
+  width: 28em;
+  background-color: #6b69b6;
+  color: white;
+  border: none;
+}

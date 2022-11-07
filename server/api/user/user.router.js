@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { createUser, sendOTP, checkUser } = require('./user.controller');
 
 // Default route
 router.get('/', (req, res) => {
@@ -7,8 +8,29 @@ router.get('/', (req, res) => {
 
 // Register a user
 router.post('/createUser', (req, res) => {
-  console.log(req.body);
-  res.send({ message: 'Successfull' });
+  createUser(req.body)
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) =>
+      res.send({
+        message: 'Error occured on the create user endpoint!',
+        statusCode: 501,
+        err,
+      })
+    );
+});
+
+router.post('/sendOTP', (req, res) => {
+  sendOTP(req.body)
+    .then((data) => res.send(data))
+    .catch((err) => res.send(err));
+});
+
+router.post('/checkUser', (req, res) => {
+  checkUser(req.body)
+    .then((response) => res.send(response))
+    .catch((err) => res.send(err));
 });
 
 module.exports = router;

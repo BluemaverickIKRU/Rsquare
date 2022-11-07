@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import './SignUp.css';
+import { setUserInfoAction } from '../../store/userSlice';
 
 const SignUp = () => {
   const [userInfo, setUserInfo] = useState({
@@ -10,6 +13,9 @@ const SignUp = () => {
     phoneNumber: '',
     password: '',
   });
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +27,12 @@ const SignUp = () => {
       body: JSON.stringify(userInfo),
     });
     const signUpRes = await signUpReq.json();
-    console.log(signUpRes);
+
+    if (signUpRes.statusCode === 200) {
+      const { firstName, lastName, email, mailVerified } = signUpRes.data;
+      dispatch(setUserInfoAction({ firstName, lastName, mailVerified, email }));
+      navigate('/login');
+    }
   };
 
   return (
@@ -129,9 +140,21 @@ const SignUp = () => {
               </label>
             </div>
             <div className="signup-button">
-              <button>Sign Up</button>
+              <button type="submit">Sign Up</button>
               <p>
-                Already have an account? <span>Log in</span>
+                Already have an account?
+                <span
+                  style={{
+                    color: 'slateblue',
+                    fontWeight: '500',
+                    cursor: 'pointer',
+                  }}
+                  onClick={() => {
+                    navigate('/login');
+                  }}
+                >
+                  Log in
+                </span>
               </p>
             </div>
           </form>

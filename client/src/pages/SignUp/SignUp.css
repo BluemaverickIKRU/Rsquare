@@ -92,4 +92,5 @@ input[type='number'] {
   background-color: #6b69b6;
   color: white;
   border: none;
+  cursor: pointer;
 }
