@@ -14,13 +14,18 @@ const userSlice = createSlice({
       state.firstName = action.payload.firstName;
       state.lastName = action.payload.lastName;
       state.email = action.payload.email;
+      state.emailVerified = action.payload.mailVerified;
     },
     logOnOrOffAction(state, action) {
       state.isLogged = action.payload;
     },
+    verifyEmail(state, action) {
+      state.emailVerified = action.payload;
+    },
   },
 });
 
-export const { setUserInfoAction, logOnOrOffAction } = userSlice.actions;
+export const { setUserInfoAction, logOnOrOffAction, verifyEmail } =
+  userSlice.actions;
 
 export default userSlice.reducer;

@@ -4,10 +4,11 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import VerifyMail from './pages/VerifyMail/VerifyMail';
+import Home from './pages/Home/Home';
 
 const App = () => {
   const isEmailVerified = useSelector((state) => state.user.emailVerified);
-  const userMail = useSelector((state) => state.user.email);
+  const userLogged = useSelector((state) => state.user.isLogged);
 
   return (
     <div>
@@ -31,14 +32,14 @@ const App = () => {
             }
           />
           <Route
-            path="/verifyMail"
+            path="/verifyEmail"
             element={
-              !isEmailVerified && userMail === '' ? (
-                <Navigate to={'/login'} />
-              ) : (
-                <VerifyMail />
-              )
+              isEmailVerified ? <Navigate to={'/home'} /> : <VerifyMail />
             }
+          />
+          <Route
+            path="/home"
+            element={userLogged ? <Home /> : <Navigate to={'/login'} />}
           />
         </Routes>
       </BrowserRouter>

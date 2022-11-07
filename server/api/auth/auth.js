@@ -1,25 +1,21 @@
 const jwt = require('jsonwebtoken');
 
 const createToken = (tokenInfo) => {
-  return new Promise((resolve, reject) => {
-    jwt.sign(tokenInfo, process.env.JWT_SECRET, (err, data) => {
-      if (err) reject({ message: 'Error occured at creating token!', err });
-      resolve(data);
-    });
-  });
+  return jwt.sign(
+    { _id: tokenInfo._id, email: tokenInfo.email },
+    process.env.JWT_SECRET
+  );
 };
 
 const checkToken = (tokenInfo) => {
-  return new Promise((resolve, reject) => {
-    jwt.verify(tokenInfo, process.env.JWT_SECRET, (err, data) => {
-      if (err)
-        reject({
-          message: 'Error occured while verifying token!',
-          err,
-        });
-      resolve({ data });
-    });
-  });
+  try {
+    return jwt.verify(tokenInfo, process.env.JWT_SECRET);
+  } catch (err) {
+    return {
+      message: 'Invalid JWT!',
+      statusCode: 501,
+    };
+  }
 };
 
 module.exports = {

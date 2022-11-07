@@ -1,5 +1,10 @@
 const router = require('express').Router();
-const { createUser, sendOTP, checkUser } = require('./user.controller');
+const {
+  createUser,
+  sendOTP,
+  checkUser,
+  validateOTP,
+} = require('./user.controller');
 
 // Default route
 router.get('/', (req, res) => {
@@ -31,6 +36,12 @@ router.post('/checkUser', (req, res) => {
   checkUser(req.body)
     .then((response) => res.send(response))
     .catch((err) => res.send(err));
+});
+
+router.post('/validateOTP', (req, res) => {
+  validateOTP(req.body)
+    .then((response) => res.send(response))
+    .catch((err) => res.send({ err, message: 'Hello' }));
 });
 
 module.exports = router;

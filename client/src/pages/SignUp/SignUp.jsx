@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import './SignUp.css';
-import { setUserInfoAction } from '../../store/userSlice';
 
 const SignUp = () => {
   const [userInfo, setUserInfo] = useState({
@@ -14,7 +12,6 @@ const SignUp = () => {
     password: '',
   });
 
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -29,9 +26,9 @@ const SignUp = () => {
     const signUpRes = await signUpReq.json();
 
     if (signUpRes.statusCode === 200) {
-      const { firstName, lastName, email, mailVerified } = signUpRes.data;
-      dispatch(setUserInfoAction({ firstName, lastName, mailVerified, email }));
       navigate('/login');
+    } else {
+      console.log(signUpRes);
     }
   };
 

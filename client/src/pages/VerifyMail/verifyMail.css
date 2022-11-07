@@ -1,0 +1,13 @@
+.mail-verify-otp {
+  text-align: center;
+  width: 35em;
+  margin: 0 auto;
+  margin-top: 16em;
+}
+
+.mail-verify-container {
+  background-image: url('https://img.freepik.com/free-vector/white-abstract-background_23-2148810113.jpg?w=1060&t=st=1667823574~exp=1667824174~hmac=303e3387f8b6e60beb40427adf17c19cb2385e2faa931fcaa8edf403b01f341e');
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+}
